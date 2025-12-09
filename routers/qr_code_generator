@@ -1,0 +1,17 @@
+from fastapi import APIRouter, Query, Response
+import qrcode
+from io import BytesIO
+
+router = APIRouter(prefix="/qrcode", tags=["QR Code Generator"])
+
+@router.get("/generate", responses={200: {"content": {"image/png": {}}}})
+async def generate_qr(data: str = Query(..., description="Text data to encode in the QR code")):
+    """Generate a QR code image from input text data."""
+    qr = qrcode.QRCode(version=1, box_size=10, border=4)
+    qr.add_data(data)
+    qr.make(fit=True)
+    img = qr.make_image(fill="black", back_color="white")
+    buf = BytesIO()
+    img.save(buf, format="PNG")
+    buf.seek(0)
+    return Response(content=buf.read(), media_type="image/png")
