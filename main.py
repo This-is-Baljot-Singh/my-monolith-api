@@ -7,6 +7,7 @@ import uvicorn
 # The automation will inject new module imports below this line.
 from routers import health_check
 from routers import timestamp_formatter
+from routers import hex_color_generator
 # IMPORT_ANCHOR - Do not delete
 
 app = FastAPI(
@@ -36,6 +37,7 @@ def root():
 # The automation will inject new router inclusions below this line.
 app.include_router(health_check.router)
 app.include_router(timestamp_formatter.router)
+app.include_router(hex_color_generator.router)
 # INCLUDE_ANCHOR - Do not delete
 
 if __name__ == "__main__":
