@@ -8,6 +8,7 @@ import uvicorn
 from routers import health_check
 from routers import timestamp_formatter
 from routers import hex_color_generator
+from routers import random_password_generator
 # IMPORT_ANCHOR - Do not delete
 
 app = FastAPI(
@@ -38,6 +39,7 @@ def root():
 app.include_router(health_check.router)
 app.include_router(timestamp_formatter.router)
 app.include_router(hex_color_generator.router)
+app.include_router(random_password_generator.router)
 # INCLUDE_ANCHOR - Do not delete
 
 if __name__ == "__main__":
