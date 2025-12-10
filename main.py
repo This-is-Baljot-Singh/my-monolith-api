@@ -10,6 +10,7 @@ from routers import timestamp_formatter
 from routers import hex_color_generator
 from routers import random_password_generator
 from routers import password_strength_checker
+from routers import uuid_generator
 # IMPORT_ANCHOR - Do not delete
 
 app = FastAPI(
@@ -42,6 +43,7 @@ app.include_router(timestamp_formatter.router)
 app.include_router(hex_color_generator.router)
 app.include_router(random_password_generator.router)
 app.include_router(password_strength_checker.router)
+app.include_router(uuid_generator.router)
 # INCLUDE_ANCHOR - Do not delete
 
 if __name__ == "__main__":
