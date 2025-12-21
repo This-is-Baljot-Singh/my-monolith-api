@@ -15,6 +15,7 @@ from routers import qr_code_generator
 from routers import ipinfo_router
 from routers import word_count_router
 from routers import random_number_generator
+from routers import text_reverser
 # IMPORT_ANCHOR - Do not delete
 
 app = FastAPI(
@@ -52,6 +53,7 @@ app.include_router(qr_code_generator.router)
 app.include_router(ipinfo_router.router)
 app.include_router(word_count_router.router)
 app.include_router(random_number_generator.router)
+app.include_router(text_reverser.router)
 # INCLUDE_ANCHOR - Do not delete
 
 if __name__ == "__main__":
